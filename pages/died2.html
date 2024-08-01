@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 99vh;
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+    user-select: none;
+}
+
+
+
+h1 {
+    color: #ff4500;
+}
+
+#runaway-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+}
+
+#win{
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+</style>
+    
+</head>
+<body>
+    <p id="score">.</p>
+    <button id="runaway-button" onclick="moveButton()">[::::]</button>
+    <script>let button = document.getElementById('runaway-button');
+        let clickCount = 0;
+        let clickCounterDisplay = document.getElementById('click-count');
+        
+        button.addEventListener('click', () => {
+            clickCount++;
+            document.getElementById('score').innerHTML = clickCount;
+        });
+        
+        function moveButton() {
+            let x = Math.floor(Math.random() * (window.innerWidth - button.offsetWidth));
+            let y = Math.floor(Math.random() * (window.innerHeight - button.offsetHeight));
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+            check();
+        }
+        function check(){
+            if(clickCount === 9){
+                document.getElementById("win").style.display = "flex";
+                document.getElementById("score").style.display = "none";
+                document.getElementById("runaway-button").style.display = "none";
+            }
+        }
+        </script>
+<div id="win">
+    <h1>Wygrałes Gałganie</h1>
+</div>
+</body>
+</html>
