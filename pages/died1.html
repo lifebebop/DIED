@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIED 1</title>
+    <style>
+        html{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background-color: #fcfefc;
+        }
+        
+        #skeleton{
+            display: none;
+            width: 100%;
+            height: 100%;
+            
+        }
+        #przycisk{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <body>
+        <img src="/images/skeletondance.gif" id="skeleton">
+        <button id="customButton">Pokaz</button>
+        <audio id="audioPlayer" src="/sounds/Nokia Espionage - Skeleton Dance.mp3" type="audio/mpeg" loop></audio>
+    
+        <script>
+            document.getElementById('customButton').addEventListener('click', function() {
+                var audio = document.getElementById('audioPlayer');
+                var skeleton = document.getElementById('skeleton');
+                skeleton.style.display = "block";
+                var przycisk = document.getElementById('customButton');
+                przycisk.style.display = "none";
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            });
+            //aa
+        </script>
+    </body>
+</body>
+</html>
